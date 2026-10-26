@@ -1,0 +1,26 @@
+@use '../styles/layout' as *;
+
+.input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 0.5px solid var(--muted);
+    border-radius: 5px;
+    background: transparent;
+    font-size: 20px;
+    height: 43px;
+
+    &::placeholder {
+        color: var(--muted);
+    }
+
+    &:focus {
+        border-color: var(--accent);
+        outline: none;
+    }
+
+    @include mobile {
+        height: 35px;
+        font-size: 12px;
+    }
+}

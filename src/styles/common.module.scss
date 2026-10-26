@@ -1,0 +1,36 @@
+@use 'layout' as *;
+
+.container {
+    @include container;
+}
+
+.loader {
+    text-align: center;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 18px;
+
+    @include mobile {
+        font-size: 12px;
+    }
+}
+
+.error {
+    text-align: center;
+    padding: 24px;
+    color: var(--error);
+    font-size: 18px;
+
+    @include mobile {
+        font-size: 12px;
+    }
+}
+
+.linkButton {
+    border: none;
+    background: none;
+    padding: 0;
+    color: var(--accent);
+    text-decoration: underline;
+    cursor: pointer;
+}

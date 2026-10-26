@@ -1,0 +1,105 @@
+@use '../styles/layout' as *;
+
+.dropdown {
+    position: relative;
+
+    @include mobile {
+        position: static;
+    }
+}
+
+.trigger {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--accent);
+    }
+
+    @include mobile {
+        gap: 8px;
+        font-size: 12px;
+    }
+}
+
+.open .trigger {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.chevron {
+    background: url('../assets/icons/chevron-down.svg') center no-repeat;
+    rotate: -90deg;
+    width: 16.66px;
+    height: 16.66px;
+    margin-block: -4.78px;
+    transition: rotate 0.2s ease;
+
+    .open & {
+        rotate: 90deg;
+    }
+
+    @include mobile {
+        width: 10px;
+        height: 10px;
+        margin-block: -2.5px;
+        background-image: url('../assets/icons/chevron-down-mobile.svg');
+    }
+}
+
+.panel {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    border-top: 1px solid var(--accent);
+    background: var(--bg);
+    box-shadow: var(--panel-shadow);
+
+    @include mobile {
+        top: calc(100% + 6px);
+        right: auto;
+        left: 2px;
+        gap: 12px;
+    }
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+    font-size: 16px;
+    white-space: nowrap;
+    cursor: pointer;
+
+    @include mobile {
+        font-size: 12px;
+    }
+}
+
+.checkbox {
+    appearance: none;
+    flex-shrink: 0;
+    width: 19px;
+    height: 19px;
+    border: 1px solid var(--accent);
+    border-radius: 2px;
+    background: transparent center no-repeat;
+    cursor: pointer;
+
+    &:checked {
+        background-color: var(--accent);
+        background-image: url('../assets/icons/check.svg');
+    }
+}

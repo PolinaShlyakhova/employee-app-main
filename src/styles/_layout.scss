@@ -1,0 +1,14 @@
+$content-width: 1560px;
+$gutter: 24px;
+$mobile-max: 767px;
+
+@mixin container {
+    width: min(#{$content-width}, 100% - #{$gutter * 2});
+    margin-inline: auto;
+}
+
+@mixin mobile {
+    @media (max-width: $mobile-max) {
+        @content;
+    }
+}

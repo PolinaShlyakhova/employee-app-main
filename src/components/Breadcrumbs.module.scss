@@ -1,0 +1,79 @@
+@use '../styles/layout' as *;
+
+.breadcrumbs {
+    padding: 28px 0;
+
+    @include mobile {
+        padding: 15px 0;
+    }
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    list-style: none;
+    color: var(--muted);
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+
+    @include mobile {
+        gap: 12px;
+        font-size: 12px;
+    }
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 16px;
+    white-space: nowrap;
+
+    & + &::before {
+        content: '';
+        flex-shrink: 0;
+        width: 16px;
+        height: 16px;
+        background: url('../assets/icons/crumb.svg') center no-repeat;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            color: var(--text);
+        }
+    }
+
+    &:last-child {
+        flex-shrink: 1;
+        min-width: 0;
+
+        span {
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    @include mobile {
+        gap: 12px;
+
+        & + &::before {
+            width: 12px;
+            height: 12px;
+            background-image: url('../assets/icons/crumb-mobile.svg');
+        }
+
+        &:first-child:nth-last-child(n + 3) {
+            display: none;
+
+            & + .item::before {
+                display: none;
+            }
+        }
+    }
+}
